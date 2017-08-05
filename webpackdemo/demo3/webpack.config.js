@@ -7,10 +7,13 @@ module.exports = {
     //publicPath: 由于示例不作线上打包，所以不用配置该项
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.css$/,
-        loaders: ["style-loader", "css-loader"]
+        test: /\.css$/,  //匹配css文件
+        use: [  //对目录下的css文件使用这两个loader
+          "style-loader",
+          "css-loader"
+        ]  
       }
     ]
   }
