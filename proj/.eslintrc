@@ -1,6 +1,17 @@
 {
   "extends": "airbnb",
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "quotes": ["error", "double"],
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4]
+  },
+  "plugins": [
+      "eslint-plugin-react",
+      "eslint-plugin-jsx-a11y",
+      "eslint-plugin-import"
+  ],
+  "env": {
+    "browser": true
   }
 }
