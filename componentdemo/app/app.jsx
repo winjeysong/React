@@ -1,14 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import Profile from "./profile";
 
-function App() {
-    return (
-        <div className="container">
-            <h1>Hello React!</h1>
-        </div>
-    );
-}
-
+const props = {
+    name: "song",
+    age: 24
+};
 const app = document.createElement("div");
+
 document.body.appendChild(app);
-ReactDOM.render(<App />, app);
+render(<Profile {...props} />, app);
