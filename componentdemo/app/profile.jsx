@@ -3,15 +3,15 @@ import Hobby from "./hobby";
 
 const propTypes = {  //属性验证
     name: PropTypes.string.isRequired,
-    age: PropTypes.number.isRequired
+    age: PropTypes.number.isRequired,
+    hobby: PropTypes.array.isRequired
 };
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {  //添加点赞的状态
-            liked: 0,
-            hobbies: ["mystic movie", "electronic music", "photographing"]
+            liked: 0
         };
         this.likedCallback = this.likedCallback.bind(this);
     }
@@ -34,7 +34,7 @@ class Profile extends React.Component {
                 <h2>total amount of likes: {this.state.liked}</h2>
                 <h2>My hobbies:</h2>
                 <ul>
-                    {this.state.hobbies.map((hobby, i) => <Hobby index={i} hobby={hobby} />)}
+                    {this.props.hobby.map((hobby, i) => <Hobby index={i} hobby={hobby} />)}
                     {/*遍历hobbies并将值传入到Hobby组件中，注意给每个循环组件添加一个唯一的index值*/}
                 </ul>
             </div>
