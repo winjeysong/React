@@ -14,6 +14,7 @@ class Profile extends React.Component {
             hobbies: ["mystic movie", "electronic music", "photographing"]
         };
         this.likedCallback = this.likedCallback.bind(this);
+        this.addHobbyCallback = this.addHobbyCallback.bind(this);
     }
 
     likedCallback() {  //给onClick单击事件添加的回调函数
@@ -22,6 +23,21 @@ class Profile extends React.Component {
         this.setState({
             liked
         });
+    }
+
+    addHobbyCallback() {
+        const hobbyAdd = this.hobbyInput;
+        const hobbyVal = hobbyAdd.value;
+
+        if (hobbyVal) {
+            let hobbies = this.state.hobbies;
+            hobbies = [...hobbies, hobbyVal];
+            this.setState({
+                hobbies
+            }, () => {
+                hobbyAdd.value = "";
+            });
+        }
     }
 
     render() {
@@ -34,9 +50,16 @@ class Profile extends React.Component {
                 <h2>total amount of likes: {this.state.liked}</h2>
                 <h2>My hobbies:</h2>
                 <ul>
-                    {this.state.hobbies.map((hobby, i) => <Hobby index={i} hobby={hobby} />)}
-                    {/*遍历hobbies并将值传入到Hobby组件中，注意给每个循环组件添加一个唯一的index值*/}
+                    {this.state.hobbies.map(hobby => <Hobby key={hobby.index} hobby={hobby} />)}
+                    {/*遍历hobbies并将值传入到Hobby组件中，注意给每个循环组件添加一个唯一的不同于数组的index值*/}
                 </ul>
+                <input
+                    type="text"
+                    ref={
+                        (input) => { this.hobbyInput = input; }
+                    }
+                />
+                <button onClick={this.addHobbyCallback}>Add my hobby</button>
             </div>
         );
     }
