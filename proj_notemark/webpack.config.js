@@ -46,7 +46,7 @@ module.exports = {
     //配置plugin
     plugins: [
         new HtmlwebpackPlugin({  //用来生成html页面
-            title: "Hello everyone!"
+            title: "Welcome to NoteMark!"
         })
     ],
     //将jsx扩展名添加入resolve，这样就可以在import中添加jsx扩展名的脚本
