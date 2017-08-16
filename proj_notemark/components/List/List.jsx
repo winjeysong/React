@@ -3,29 +3,31 @@
  */
 
 //load dependencies
+import React, { PropTypes } from "react"
 import ListItem from "../ListItem/ListItem";
 
 //prop validation
 const propTypes = {
-    item: PropTypes.object.isRequired,
-
-}
+    items: PropTypes.array.isRequired,
+    onSelect: PropTypes.func.isRequired
+};
 
 //stateless function
-function List({ items }) {item
+function List({ items, onSelect }) {
     //traverse component ListItem
-    items = items.map(
+    const itemsAll = items.map(
         item => (
             <ListItem
                 item={item}
                 key={item.id}
+                onClick={() => onSelect(item.id)}
             />
         )
     );
 
     return (
         <div className="">
-            {items}
+            {itemsAll}
         </div>
     );
 }
