@@ -3,17 +3,19 @@
  * markdown available
  */
 
+import React, { PropTypes } from "react";
 //load dependencies
 import marked from "marked";
 
 //prop validation
 const propTypes = {
-    item: PropTypes.object.isRequired,
-
-}
+    item: PropTypes.object,
+    onEdit: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
+};
 
 //stateless function
-function ItemShowLayer({ item }) {
+function ItemShowLayer({ item, onEdit, onDelete }) {
     //if item hasn't passed, return static note
     if (!item || !item.id) {
         return (
@@ -23,12 +25,12 @@ function ItemShowLayer({ item }) {
         );
     }
     //transform markdown to HTML
-    let content = marked(item.content);
+    const content = marked(item.content);
     return (
         <div className="">
             <div className="control-btn">
-                <button className="">编辑</button>
-                <button className="">删除</button>
+                <button onClick={() => onEdit(item.id)} className="">编辑</button>
+                <button onClick={() => onDelete(item.id)} className="">删除</button>
             </div>
             <h2>{item.title}</h2>
             <div className="">
