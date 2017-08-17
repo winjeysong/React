@@ -7,21 +7,20 @@ import React, { PropTypes } from "react";
 
 //prop validation
 const propTypes = {
-    item: PropTypes.object.isRequired,
-
-}
+    onClick: PropTypes.func.isRequired
+};
 
 //stateless function
-function CreateBar() {
+function CreateBar({ onClick }) {
     return (
-        <div className="">
-            <span className="">+新建文章</span>
-        </div>
+        <a href="#" onClick={onClick} className="">
+            +新建文章
+        </a>
     );
 }
 
 //add prop validation
-ListItem.propTypes = propTypes;
+CreateBar.propTypes = propTypes;
 
 //export this component
-export default ListItem;
+export default CreateBar;
