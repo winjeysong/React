@@ -1,12 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
-import Profile from "./profile";
+import NoteMark from "./NoteMark/NoteMark";
 
-const props = {
-    name: "song",
-    age: 24
-};
+
 const app = document.createElement("div");
 
 document.body.appendChild(app);
-render(<Profile {...props} />, app);
+render(<NoteMark />, app);
