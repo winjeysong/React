@@ -13,9 +13,9 @@ const propTypes = {
 //stateless function
 function CreateBar({ onClick }) {
     return (
-        <a href="#" onClick={onClick} className="">
+        <button  onClick={onClick} className="">
             +新建文章
-        </a>
+        </button>
     );
 }
 

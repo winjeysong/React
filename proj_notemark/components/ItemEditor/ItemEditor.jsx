@@ -10,53 +10,64 @@ const propTypes = {
     item: PropTypes.object,
     onSave: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired
-}
+};
 
 //stateless function
-function ItemEditor() {
-    const { onSave, onCancel } = this.props;
-    const item = this.props.item || {
-        title: "",
-        content: ""
-    };
-    let editText = item.id ? "保存" : "创建";
-    let save = () => {
-        onSave({
-            ...item,
-            title: this.titleInput,
-            content: this.contentInput
-        });
-    };
-
-    return (
-        <div className="">
-            <div className="control-btn">
-                <button onClick={save} className="">{editText}</button>
-                <button className="">取消</button>
+class ItemEditor extends React.Component {
+    render() {
+        let titleInput = null;
+        let contentInput = null;
+        const { onSave, onCancel } = this.props;
+        const item = this.props.item || {
+            title: "",
+            content: ""
+        };
+        const editText = item.id ? "保存" : "创建";
+        const save = () => {
+            onSave({
+                item,
+                title: titleInput.value,
+                content: contentInput.value
+            });
+        };
+        return (
+            <div className="item-editor">
+                <div className="control-btn">
+                    <button onClick={save} className="">{editText}</button>
+                    <button onClick={onCancel} className="">取消</button>
+                </div>
+                <div className="edit-box">
+                    <input
+                        ref={
+                            (input) => { titleInput = input; }
+                        }
+                        defaultValue={item.title}
+                        type="text"
+                        className=""
+                        placeholder="请输入标题"
+                    />
+                    <textarea
+                        ref={
+                            (textarea) => { contentInput = textarea; }
+                        }
+                        defaultValue={item.content}
+                        name=""
+                        id=""
+                        placeholder="开始写作吧"
+                    />
+                </div>
             </div>
-            <div className="edit-box">
-                <input
-                    ref={
-                        (input) => { this.titleInput = input; }
-                    }
-                    defaultValue={item.title}
-                    type="text" className="" placeholder="请输入标题"
-                />
-                <textarea
-                    ref={
-                        (textarea) => { this.contentInput = textarea; }
-                    }
-                    defaultValue={item.content}
-                    name="" id="" placeholder="开始写作吧"
-                >
-                </textarea>
-            </div>
-        </div>
-    );
+        );
+    }
 }
 
 //add prop validation
 ItemEditor.propTypes = propTypes;
+
+//default props
+ItemEditor.defaultProps = {
+    item: []
+};
 
 //export this component
 export default ItemEditor;

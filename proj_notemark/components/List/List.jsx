@@ -26,7 +26,7 @@ function List({ items, onSelect }) {
     );
 
     return (
-        <div className="">
+        <div className="list">
             {itemsAll}
         </div>
     );
