@@ -27,21 +27,26 @@ function ItemShowLayer({ item, onEdit, onDelete }) {
     //transform markdown to HTML
     const content = marked(item.content);
     return (
-        <div className="">
+        <div className="item-show-layer">
             <div className="control-btn">
                 <button onClick={() => onEdit(item.id)} className="">编辑</button>
                 <button onClick={() => onDelete(item.id)} className="">删除</button>
             </div>
             <h2>{item.title}</h2>
             <div className="">
-                <div dangerouslySetInnerHTML={{__html: content}} />
+                <div dangerouslySetInnerHTML={{ __html: content }} />
             </div>
         </div>
-    )
+    );
 }
 
 //add prop validation
 ItemShowLayer.propTypes = propTypes;
+
+//default prop
+ItemShowLayer.defaultProps = {
+    item: []
+};
 
 //export this component
 export default ItemShowLayer;

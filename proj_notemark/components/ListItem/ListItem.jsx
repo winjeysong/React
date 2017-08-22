@@ -24,10 +24,10 @@ function ListItem({ item, onClick }) {
             className=""
             onClick={onClick}
         >
-            <span className="">
+            <span className="list-item-time">
                 {time}
             </span>
-            <span className="">
+            <span className="list-item-title">
                 {item.title}
             </span>
         </a>

@@ -3,7 +3,7 @@
  */
 
 //load dependencies
-import React, { PropTypes } from "react"
+import React, { PropTypes } from "react";
 import ListItem from "../ListItem/ListItem";
 
 //prop validation
