@@ -19,9 +19,8 @@ function ListItem({ item, onClick }) {
     }
 
     return (
-        <a
-            href="#"
-            className=""
+        <button
+            className="list-item-btn">
             onClick={onClick}
         >
             <span className="list-item-time">
@@ -30,7 +29,7 @@ function ListItem({ item, onClick }) {
             <span className="list-item-title">
                 {item.title}
             </span>
-        </a>
+        </button>
     );
 }
 
