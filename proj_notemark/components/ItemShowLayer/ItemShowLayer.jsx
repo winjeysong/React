@@ -19,8 +19,8 @@ function ItemShowLayer({ item, onEdit, onDelete }) {
     //if item hasn't passed, return static note
     if (!item || !item.id) {
         return (
-            <div className="">
-                <div className="">请点击文章列表里的文章进行查看与修改。</div>
+            <div className="item-show-layer">
+                <div className="not-selected">请点击文章列表里的文章进行查看与修改。</div>
             </div>
         );
     }
