@@ -33,8 +33,8 @@ class ItemEditor extends React.Component {
         return (
             <div className="item-editor">
                 <div className="control-btn">
-                    <button onClick={save} className="">{editText}</button>
-                    <button onClick={onCancel} className="">取消</button>
+                    <button onClick={save} className="btn create-save-btn">{editText}</button>
+                    <button onClick={onCancel} className="btn cancel-btn">取消</button>
                 </div>
                 <div className="edit-box">
                     <input

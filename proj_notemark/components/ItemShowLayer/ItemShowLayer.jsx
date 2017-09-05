@@ -29,8 +29,8 @@ function ItemShowLayer({ item, onEdit, onDelete }) {
     return (
         <div className="item-show-layer">
             <div className="control-btn">
-                <button onClick={() => onEdit(item.id)} className="">编辑</button>
-                <button onClick={() => onDelete(item.id)} className="">删除</button>
+                <button onClick={() => onEdit(item.id)} className="btn edit-btn">编辑</button>
+                <button onClick={() => onDelete(item.id)} className="btn delete-btn">删除</button>
             </div>
             <h2>{item.title}</h2>
             <div className="">

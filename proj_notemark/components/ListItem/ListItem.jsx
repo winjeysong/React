@@ -20,7 +20,7 @@ function ListItem({ item, onClick }) {
 
     return (
         <button
-            className="list-item-btn">
+            className="list-item-btn"
             onClick={onClick}
         >
             <span className="list-item-time">
