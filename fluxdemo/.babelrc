@@ -1,0 +1,8 @@
+{
+    "presets": ["es2015","react"],
+    "env": {
+        "development": {  //开发时才启用
+            "presets": ["react-hmre"]  
+        }
+    }
+}
