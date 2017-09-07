@@ -4,7 +4,7 @@ var HtmlwebpackPlugin = require("html-webpack-plugin");
 
 /************************** 常用路径 ****************************/
 var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH = path.resolve(ROOT_PATH, "components");
+var APP_PATH = path.resolve(ROOT_PATH, "app");
 var BUILD_PATH = path.resolve(ROOT_PATH, "build");
 /************************** 常用路径 ****************************/
 
