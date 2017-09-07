@@ -1,5 +1,5 @@
 {
-  "name": "proj_notemark",
+  "name": "fluxdemo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -27,18 +27,18 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "events": "^1.1.1",
-    "flux": "^3.1.3",
     "html-webpack-plugin": "^2.30.1",
     "ignore-styles": "^5.0.1",
     "jsdom": "11.2.0",
     "jsdom-global": "3.0.2",
     "mocha": "^3.5.0",
-    "prop-types": "^15.5.10",
     "react-addons-test-utils": "^15.6.0",
     "webpack": "^3.4.1"
   },
   "dependencies": {
+    "flux": "^3.1.3",
     "marked": "^0.3.6",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "uuid": "^3.1.0"
