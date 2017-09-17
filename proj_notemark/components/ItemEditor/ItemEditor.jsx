@@ -12,22 +12,41 @@ const propTypes = {
     onCancel: PropTypes.func.isRequired
 };
 
-//stateless function
 class ItemEditor extends React.Component {
-    render() {
-        let titleInput = null;
-        let contentInput = null;
-        const { onSave, onCancel } = this.props;
-        const item = this.props.item || {
+    constructor(props) {
+        super(props);
+        this.state = this.props.item || {
             title: "",
             content: ""
+        };
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
+        this.handleChangeContent = this.handleChangeContent.bind(this);
+    }
+
+    handleChangeTitle(e) {
+        this.setState({
+            title: e.target.value
+        });
+    }
+
+    handleChangeContent(e) {
+        this.setState({
+            content: e.target.value
+        });
+    }
+
+    render() {
+        const { onSave, onCancel } = this.props;
+        const item = {
+            title: this.state.title,
+            content: this.state.content
         };
         const editText = item.id ? "保存" : "创建";
         const save = () => {
             onSave({
-                item,
-                title: titleInput.value,
-                content: contentInput.value
+                ...item,
+                title: item.title,
+                content: item.content
             });
         };
         return (
@@ -38,19 +57,15 @@ class ItemEditor extends React.Component {
                 </div>
                 <div className="edit-box">
                     <input
-                        ref={
-                            (input) => { titleInput = input; }
-                        }
-                        defaultValue={item.title}
+                        value={item.title}
+                        onChange={this.handleChangeTitle}
                         type="text"
                         className=""
                         placeholder="请输入标题"
                     />
                     <textarea
-                        ref={
-                            (textarea) => { contentInput = textarea; }
-                        }
-                        defaultValue={item.content}
+                        value={item.content}
+                        onChange={this.handleChangeContent}
                         name=""
                         id=""
                         placeholder="开始写作吧"
