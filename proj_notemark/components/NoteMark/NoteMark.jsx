@@ -42,8 +42,8 @@ export default class NoteMark extends React.Component {
         //for new item
         if (!item.id) {
             items = [...items, {
-                item,
-                id: uuid.v4,
+                ...item,
+                id: uuid.v4(),
                 time: new Date().getTime()
             }];
         //for exsited item
@@ -51,8 +51,8 @@ export default class NoteMark extends React.Component {
             items = items.map(
                 existedItem => (
                     existedItem.id === item.id ? {
-                        existedItem,
-                        item
+                        ...existedItem,
+                        ...item
                     } : existedItem
                 )
             );
