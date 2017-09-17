@@ -32,9 +32,11 @@ function ItemShowLayer({ item, onEdit, onDelete }) {
                 <button onClick={() => onEdit(item.id)} className="btn edit-btn">编辑</button>
                 <button onClick={() => onDelete(item.id)} className="btn delete-btn">删除</button>
             </div>
-            <h2>{item.title}</h2>
-            <div className="">
-                <div dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="article">
+                <h2>{item.title}</h2>
+                <div className="content">
+                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                </div>
             </div>
         </div>
     );
