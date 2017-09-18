@@ -40,6 +40,21 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: ["babel-loader"],
                 include: APP_PATH
+            },
+            //添加css-loader和style-loader
+            {
+                test: /\.css$/,  //匹配css文件
+                use: [  //对目录下的css文件使用这两个loader
+                    "style-loader",
+                    "css-loader"
+                ],
+                include: APP_PATH
+            },
+            //添加scss-loader
+            {
+                test: /\.scss?$/,
+                loader: ["sass-loader"],
+                include: APP_PATH
             }
         ]
     },
@@ -52,6 +67,6 @@ module.exports = {
     //将jsx扩展名添加入resolve，这样就可以在import中添加jsx扩展名的脚本
     resolve: {
         extensions: [".js", ".jsx"]
-    },
-}
+    }
+};
 
