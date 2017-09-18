@@ -52,11 +52,26 @@ module.exports = {
             //添加scss-loader
             {
                 test: /\.scss?$/,
-                loader: ["sass-loader"]
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            includePaths: [
+                                "/Users/winjeysong/Documents/React/proj_notemark/styles"
+                            ]
+                        }
+                    }
+                ]
             },
             //添加file-loader，识别.eot文件
             {
-                test: /\.eot?$/, 
+                test: /\.eot?$/,
                 loader: ["file-loader"]
             },
             //添加url-loader，识别.woff,.woff2,.ttf,.svg文件
