@@ -5,6 +5,7 @@ import CreateBar from "../CreateBar/CreateBar";
 import List from "../List/List";
 import ItemEditor from "../ItemEditor/ItemEditor";
 import ItemShowLayer from "../ItemShowLayer/ItemShowLayer";
+import "../../styles/NoteMark.scss";
 
 
 export default class NoteMark extends React.Component {
@@ -116,20 +117,27 @@ export default class NoteMark extends React.Component {
 
         return (
             <section className="notemark">
-                <nav className="">
+                <nav className="nav">
                     <a href="http://winjeysong.com">NoteMark</a>
+                    <hr />
                 </nav>
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4 list-group">
-                            <CreateBar onClick={this.createItem} />
-                            <List
-                                items={this.state.items}
-                                onSelect={this.selectItem}
-                            />
+                        <div className="col-md-4 col-md-offset-1">
+                            <div className="create-btn">
+                                <CreateBar onClick={this.createItem} />
+                            </div>
+                            <div className="list-group">
+                                <List
+                                    items={this.state.items}
+                                    onSelect={this.selectItem}
+                                />
+                            </div>
                         </div>
-                        {main}
+                        <div className="col-md-6 col-md-offset-1  maincontent">
+                            {main}
+                        </div>
                     </div>
                 </div>
             </section>
