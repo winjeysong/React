@@ -32,7 +32,7 @@ function ListItem({ item, onClick }) {
                 className="list-item-btn btn btn-default"
                 onClick={onClick}
             >
-                阅读
+                查看
             </button>
         </div>
     );

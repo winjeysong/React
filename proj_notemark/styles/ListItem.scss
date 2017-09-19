@@ -1,0 +1,19 @@
+.list-item {
+    margin: 12px 0;
+    .list-item-time {
+        color: #aeaeae !important;
+    }
+    
+    .list-item-title {
+        display: inline-block;
+        width: 135px;
+        margin: 0 5px 0 10px;
+    }
+
+    .list-item-btn {
+        padding: 1px 6px;
+        font-size: 12px;
+        color: #888;
+        height: 22px;
+    }
+}
