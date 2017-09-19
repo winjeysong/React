@@ -4,6 +4,7 @@
 
 //load dependencies
 import React, { PropTypes } from "react";
+import "../../styles/ItemEditor.scss";
 
 //prop validation
 const propTypes = {
@@ -52,24 +53,48 @@ class ItemEditor extends React.Component {
         return (
             <div className="item-editor">
                 <div className="control-btn">
-                    <button onClick={save} className="btn create-save-btn">{editText}</button>
-                    <button onClick={onCancel} className="btn cancel-btn">取消</button>
+                    <button
+                        onClick={save}
+                        className="btn create-save-btn btn-success"
+                    >
+                        {editText}
+                    </button>
+                    <button
+                        onClick={onCancel}
+                        className="btn cancel-btn btn-warning"
+                    >
+                        取消
+                    </button>
                 </div>
                 <div className="edit-box">
-                    <input
-                        value={item.title}
-                        onChange={this.handleChangeTitle}
-                        type="text"
-                        className=""
-                        placeholder="请输入标题"
-                    />
-                    <textarea
-                        value={item.content}
-                        onChange={this.handleChangeContent}
-                        name=""
-                        id=""
-                        placeholder="开始写作吧"
-                    />
+                    <div className="input-group title-input">
+                        <span className="input-group-addon" id="addon1">
+                            标题
+                        </span>
+                        <input
+                            value={item.title}
+                            onChange={this.handleChangeTitle}
+                            type="text"
+                            className="form-control"
+                            placeholder="请输入标题"
+                            aria-describedby="addon1"
+                        />
+                    </div>
+                    <div className="input-group">
+                        <span className="input-group-addon" id="addon2">
+                            正文
+                        </span>
+                        <textarea
+                            value={item.content}
+                            onChange={this.handleChangeContent}
+                            className="form-control"
+                            name=""
+                            id=""
+                            aria-describedby="addon2"
+                            placeholder="开始写作吧"
+                            rows="35"
+                        />
+                    </div>
                 </div>
             </div>
         );
