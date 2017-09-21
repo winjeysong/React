@@ -55,7 +55,7 @@ module.exports = {
                 test: /\.scss?$/,
                 loader: ["sass-loader"],
                 include: APP_PATH
-            },
+            }
         ]
     },
     //配置plugin
@@ -67,6 +67,6 @@ module.exports = {
     //将jsx扩展名添加入resolve，这样就可以在import中添加jsx扩展名的脚本
     resolve: {
         extensions: [".js", ".jsx"]
-    },
-}
+    }
+};
 
