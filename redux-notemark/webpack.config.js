@@ -53,8 +53,63 @@ module.exports = {
             //添加scss-loader
             {
                 test: /\.scss?$/,
-                loader: ["sass-loader"],
-                include: APP_PATH
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            includePaths: [
+                                "/Users/winjeysong/Documents/React/proj_notemark/styles"
+                            ]
+                        }
+                    }
+                ]
+            },
+            //添加file-loader，识别.eot文件
+            {
+                test: /\.eot?$/,
+                loader: ["file-loader"]
+            },
+            //添加url-loader，识别.woff,.woff2,.ttf,.svg文件
+            {
+                test: /\.(woff|woff2)$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.ttf?$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            mimetype: "application/octet-stream"
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.svg?$/,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            mimetype: "image/svg+xml"
+                        }
+                    }
+                ]
             }
         ]
     },
