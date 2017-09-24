@@ -4,7 +4,7 @@
 
 //load dependencies
 import React, { PropTypes } from "react";
-import ListItem from "../ListItem/";
+import ListItem from "../ListItem";
 
 //prop validation
 const propTypes = {
