@@ -47,8 +47,7 @@ module.exports = {
                 use: [  //对目录下的css文件使用这两个loader
                     "style-loader",
                     "css-loader"
-                ],
-                include: APP_PATH
+                ]
             },
             //添加scss-loader
             {
@@ -64,7 +63,7 @@ module.exports = {
                         loader: "sass-loader",
                         options: {
                             includePaths: [
-                                "/Users/winjeysong/Documents/React/proj_notemark/styles"
+                                "/Users/winjeysong/Documents/React/redux_notemark/components"
                             ]
                         }
                     }
