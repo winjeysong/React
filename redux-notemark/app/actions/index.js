@@ -61,7 +61,14 @@ export function fetchEntryList() {
 
 export const UPDATE_SAVED_ENTRY = "UPDATE_SAVED_ENTRY";
 
-export function updateSavedEntry(item) {
+function updateSavedEntry(id) {
+    return {
+        type: UPDATE_SAVED_ENTRY,
+        id
+    };
+}
+
+export function saveEntry(item) {
     const { title, content, id } = item;
     return (dispatch) => {
         //update
