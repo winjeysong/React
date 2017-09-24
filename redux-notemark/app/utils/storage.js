@@ -33,11 +33,13 @@ export function saveAll(results) {
 }
 
 export function getEntry(id) {
-    return getAll().then(
-        results => results.find(
-            result => result.id === id
+    return getAll()
+        .then(
+            results => results.find(
+                result => result.id === id
+            )
         )
-    );
+        .then(saveAll);
 }
 
 export function insertEntry(title, content) {
@@ -54,6 +56,15 @@ export function insertEntry(title, content) {
         .then(() => entry);
 }
 
+export function deleteEntry(id) {
+    return getAll()
+        .then(
+            results => results.filter(
+                result => result.id !== id
+            )
+        );
+}
+
 export function updateEntry(id, title, content) {
     let entry;
     return getAll()
@@ -61,7 +72,7 @@ export function updateEntry(id, title, content) {
             results => results.map(
                 result => (
                     result.id === id
-                        ? (entry === {
+                        ? (entry = {
                             ...result,
                             title,
                             content
