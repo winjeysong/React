@@ -41,5 +41,11 @@ export default function editor(state = initialState, action) {
             ...state,
             isEditing: false
         };
+    case ActionTypes.FINISH_DELETE_ENTRY:
+        return {
+            ...state,
+            selectedId: null,
+            isEditing: false
+        };
     }
 }

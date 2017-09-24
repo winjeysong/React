@@ -36,6 +36,7 @@ export function cancelEdit() {
 }
 
 export const UPDATE_ENTRY_LIST = "UPDATE_ENTRY_LIST";
+export const FINISH_DELETE_ENTRY = "FINISH_DELETE_ENTRY";
 
 function updateEntryList(items) {
     return {
@@ -44,9 +45,17 @@ function updateEntryList(items) {
     };
 }
 
+function finishDeleteEntry(id) {
+    return {
+        type: FINISH_DELETE_ENTRY,
+        id
+    };
+}
+
 export function deleteEntry(id) {
     return (dispatch) => {
-        storage.deleteEntry(id)
+        storage.deleteSavedEntry(id)
+            .then(() => dispatch(finishDeleteEntry(id)))
             .then(() => storage.getAll())
             .then(items => dispatch(updateEntryList(items)));
     };

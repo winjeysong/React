@@ -56,13 +56,14 @@ export function insertEntry(title, content) {
         .then(() => entry);
 }
 
-export function deleteEntry(id) {
+export function deleteSavedEntry(id) {
     return getAll()
         .then(
             results => results.filter(
                 result => result.id !== id
             )
-        );
+        )
+        .then(saveAll);
 }
 
 export function updateEntry(id, title, content) {
