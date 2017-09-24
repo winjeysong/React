@@ -6,6 +6,7 @@
 import React, { PropTypes } from "react";
 //load dependencies
 import marked from "marked";
+import "./style.scss";
 
 //prop validation
 const propTypes = {
@@ -19,8 +20,8 @@ function ItemShowLayer({ item, onEdit, onDelete }) {
     //if item hasn't passed, return static note
     if (!item || !item.id) {
         return (
-            <div className="item-show-layer">
-                <div className="not-selected">请点击文章列表里的文章进行查看与修改。</div>
+            <div className="item-show-layer-article not-selected">
+                请创建并点击文章列表里的文章进行查看与修改。
             </div>
         );
     }
@@ -29,12 +30,27 @@ function ItemShowLayer({ item, onEdit, onDelete }) {
     return (
         <div className="item-show-layer">
             <div className="control-btn">
-                <button onClick={() => onEdit(item.id)} className="btn edit-btn">编辑</button>
-                <button onClick={() => onDelete(item.id)} className="btn delete-btn">删除</button>
+                <button
+                    onClick={() => onEdit(item.id)}
+                    className="edit-btn btn btn-success"
+                >
+                    编辑
+                </button>
+                <button
+                    onClick={() => onDelete(item.id)}
+                    className="delete-btn btn btn-danger"
+                >
+                    删除
+                </button>
             </div>
-            <h2>{item.title}</h2>
-            <div className="">
-                <div dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="item-show-layer-article">
+                <div className="article">
+                    <h1>{item.title}</h1>
+                    <hr />
+                    <div className="content">
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                    </div>
+                </div>
             </div>
         </div>
     );
