@@ -8,7 +8,7 @@ import List from "../List";
 import ItemShowLayer from "../ItemShowLayer";
 import ItemEditor from "../ItemEditor";
 
-import "./style.sass"
+import "./style.scss";
 
 const propTypes = {
     state: PropTypes.object.isRequired,
@@ -16,7 +16,6 @@ const propTypes = {
 };
 
 class NoteMark extends React.Component {
-
     //when component mount 
     componentDidMount() {
         this.props.actions.fetchEntryList();
@@ -24,7 +23,7 @@ class NoteMark extends React.Component {
 
     render() {
         const { state, actions } = this.props;
-        const { isEditing, selectedId} = state.editor;
+        const { isEditing, selectedId } = state.editor;
         const items = state.items;
         const item = items.find(
             ({ id }) => id === selectedId
@@ -36,8 +35,7 @@ class NoteMark extends React.Component {
                 onSave={actions.saveEntry}
                 onCancel={actions.cancelEdit}
             />
-        ):
-        (
+        ) : (
             <ItemShowLayer
                 item={item}
                 onEdit={actions.editEntry}
@@ -47,20 +45,27 @@ class NoteMark extends React.Component {
 
         return (
             <section className="notemark">
-                <nav className="">
-                    <a href="winjeysong.com" className="">NoteMark</a>
+                <nav className="nav">
+                    <a href="http://winjeysong.com">NoteMark</a>
+                    <hr />
                 </nav>
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4">
-                            <CreateBar onClick={actions.createNewEntry} />
-                            <List 
-                                items={items}
-                                onSelect={actions.selectEntry}
-                            />
+                        <div className="col-md-4 col-md-offset-1">
+                            <div className="create-btn">
+                                <CreateBar onClick={actions.createNewEntry} />
+                            </div>
+                            <div className="list-group">
+                                <List
+                                    items={items}
+                                    onSelect={actions.selectEntry}
+                                />
+                            </div>
                         </div>
-                        {main}
+                        <div className="col-md-6 col-md-offset-1  maincontent">
+                            {main}
+                        </div>
                     </div>
                 </div>
             </section>
